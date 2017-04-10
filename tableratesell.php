@@ -27,13 +27,13 @@ function getRateBuy($bank_name){
     $html_1=array();
     $N=$NUMBER_CUR+$NUMBER_CUR+4+2;
     //echo "n=".$N;
-    for ($i=4; $i <$N; $i=$i+2) {
+    for ($i=2; $i <$N; $i=$i+2) {
         $html_1[$i]= explode("</span>", $file)[$i];
     }
     $html_2=array();
     $y=0;
     //shit element 
-    for ($i=4; $i <$N; $i=$i+2)
+    for ($i=2; $i <$N; $i=$i+2)
     {
         $html_2[$y]=$html_1[$i];
         $y++;
