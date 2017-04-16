@@ -38,9 +38,9 @@
                 <p class="control">
                     <span class="select" >
                         <select name='selectTitel'>
-                            <option  value='Mr.]'>Mr.</option>
-                            <option value='Mrs'>Mrs.</option>
-                            <option value='Miss'>Miss</option>
+                            <option  value='Mr.'>Mr.</option>
+                            <option value='Mrs.'>Mrs.</option>
+                            <option value='Miss.'>Miss.</option>
                             <option value='Ms.'>Ms.</option>
                             <option value='Dr.'>Dr.</option>
                         </select>
