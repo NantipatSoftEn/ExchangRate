@@ -25,15 +25,15 @@
             echo "<tr>";
 
             for ($i = 0; $i < count($head); $i++)
-             echo "<td>" . $head[$i] . "</td>";
+               echo "<td>" . $head[$i] . "</td>";
 
-         echo "</tr>";
-         $CountryCode=array();
-         $Money=array();
-         $con = mysqli_connect("localhost", "root", "", "database");
-         $result = mysqli_query($con, "SELECT CountryCode,Money FROM money");
-         while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
-         {
+           echo "</tr>";
+           $CountryCode=array();
+           $Money=array();
+           $con = mysqli_connect("localhost", "root", "", "database");
+           $result = mysqli_query($con, "SELECT CountryCode,Money FROM money");
+           while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
+           {
             $CountryCode[]=$row[0];
             $Money[]=$row[1];
 
@@ -41,7 +41,7 @@
 
 
         $con = mysqli_connect("localhost", "root", "", "database2");
-        $result = mysqli_query($con, "SELECT date,CountryCode,Quanlity FROM data where date=' ".date('2017-04-15')." '");
+        $result = mysqli_query($con, "SELECT date,CountryCode,Quanlity FROM data where date=' ".date('Y-m-d')." '");
         $Quanlity=array(0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) 
@@ -93,32 +93,32 @@
         for ($i=0; $i < count($Money); $i++) {
             if($Quanlity[$i]>0)
             {
-               echo "<tr>";
+             echo "<tr>";
 
-               echo "<td>".$CountryCode[$i]."</td>";
-               echo "<td>".$Quanlity[$i]."</td>";
+             echo "<td>".$CountryCode[$i]."</td>";
+             echo "<td>".$Quanlity[$i]."</td>";
 
-               echo "</tr>";
-
-
-
-               echo '<input type="hidden" name="CountryCode[]" value='.$CountryCode[$i] .'>';
-               echo '<input type="hidden" name="Quanlity[]" value='.$Quanlity[$i] .'>';
-               $counts++;
-           } 
-
-
-       }
-
-       echo '<input type="hidden" name="counts" value='.$counts .'>';
-
-       echo "</table>";
-
-       ?>
+             echo "</tr>";
 
 
 
-       <center>
+             echo '<input type="hidden" name="CountryCode[]" value='.$CountryCode[$i] .'>';
+             echo '<input type="hidden" name="Quanlity[]" value='.$Quanlity[$i] .'>';
+             $counts++;
+         } 
+
+
+     }
+
+     echo '<input type="hidden" name="counts" value='.$counts .'>';
+
+     echo "</table>";
+
+     ?>
+
+
+
+     <center>
         <input type='submit' class="button is-success" value='PrintReport' >
         <a class='button is-danger'  onClick='window.history.back();''>Back</a></center>
     </div>
