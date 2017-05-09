@@ -66,7 +66,7 @@
 
               
               echo '<input type="hidden" name="CountryCode[]" value='.$row[1] .'>';
-              echo '<input type="hidden" name="Rate[]" value='.$row[0] .'>';
+              echo '<input type="hidden" name="Rate[]" value='.$row[2] .'>';
               echo"<td>" . $_POST['txtVol2'][$temp] . "</td>";
               echo '<input type="hidden" name="Quanlity[]" value='.$_POST['txtVol2'][$temp].'>';
               $sum = $row[2] * $_POST['txtVol2'][$temp];
