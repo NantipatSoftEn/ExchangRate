@@ -1,6 +1,4 @@
 # PHPexchange-money
-# Exchang_New-version
-
 Update
 -----------------------------
 รายงานรายได้ประจำวัน
