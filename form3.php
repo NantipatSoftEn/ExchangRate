@@ -44,7 +44,7 @@
 			date_default_timezone_set("asia/bangkok");
 			echo'<p align = "right"><font size = "2"> วันที่ออกรายงาน '.date('Y-m-d').' </font></p><br>';
 			echo" <h1><U><center>บริษัท เพียวนา จำกัด</U></center></h1>";
-			echo"<center>-รายงานรายได้ประจำเดือน</center></br>";
+			echo"<center>รายงานรายได้ประจำเดือน</center></br>";
 			echo "รายได้ประจำเดือนที่:	" . DateThai(date('m')) . "</br></br>";
 			echo"<table class='table'>";
 			$head = array("CountryCode", "Quantity","Price","Date");
@@ -66,19 +66,20 @@
 			$result=mysqli_query($con,"SELECT CountryCode,Quanlity,date FROM data where MONTH(Date)=' ".date('m')." '");
 			$Rate_compare=array('','','','','','','','','','','','','');
 			echo '<form name="form3" method="post" action="report3.php">';
-
 			while($row=mysqli_fetch_array($result,MYSQLI_NUM))
 			{
 	
-			
+				
 				$Rate_compare[$row[0]]=array($row[1],$row[2]);
 			}
-				
+			
+			
+			
 			$sum_mouth=0;
 
 			for ($i=0; $i < count($CountryCode); $i++) { 
 				echo "<tr>";
-				echo $CountryCode[$i]."</br>";
+			
 				echo "<td>".$CountryCode[$i]."</td>";
 				echo "<td>".$Rate_compare[$CountryCode[$i]][0]."</td>";
 				echo "<td>".$Rate_compare[$CountryCode[$i]][0]*$Money[$i]."</td>";
@@ -89,7 +90,7 @@
 				$sum_mouth+=$Rate_compare[$CountryCode[$i]][0]*$Money[$i];
 
 				
-				echo '<input type="hidden" name="Quanlity[]" value='.$Rate_compare[$CountryCode[$i]][0]*$Money[$i] .'>';
+				echo '<input type="hidden" name="Quanlity[]" value='.$Rate_compare[$CountryCode[$i]][0].'>';
 				echo '<input type="hidden" name="Price[]" value='.$Rate_compare[$CountryCode[$i]][0]*$Money[$i].'>';
 				echo '<input type="hidden" name="date[]" value='.$Rate_compare[$CountryCode[$i]][1].'>';
 				

@@ -11,14 +11,16 @@ class PDF extends FPDF
 		$this->SetFont('Arial','B',30);
 
 	//Title
-      //$this->Cell(30,10,'REPORT','C');
-		$this->Cell(40,20,"Monthly income report");
+      
+		$this->Cell(40,20,"Summary report");
 		$this->Ln();
 		$this->SetFont('Arial','B',15);
-		$this->Cell(40,20,"Date:".date('Y-m-d'));
+		$this->Cell(40,20,"ID : ".$_POST['ID']);
+		$this->Cell(40,20,"Name : ".$_POST['name']." ".$_POST['lastname']);
 		$this->Ln();
-    //echo "code=".$_POST['CountryCode'][0];
-    //echo "Q=".$_POST['Quanlity'][0];
+		$this->Cell(40,20,"Date:".date('Y-m-d')." Time:".date('h:i:sa'));
+		$this->Ln();
+
 	//Line break
 		$this->Ln(5);
 	}
@@ -84,18 +86,18 @@ $data=array(array());
 echo $_POST['CountryCode'][1]."<br>";
 echo $_POST['CountryCode'][2]."<br>";*/
 
-for($i=0;$i< $_POST['size'];$i++)
+for($i=0;$i< $_POST['counts'];$i++)
 {
 	for($j=0;$j<4;$j++)
 	{
 		if($j==0)
 			$data[$i][$j]=$_POST['CountryCode'][$i];
-		else if($j==1)
-			$data[$i][$j]=$_POST['Quanlity'][$i];
+		else if($j==1) 
+			$data[$i][$j]=$_POST['Rate'][$i];
 		else if($j== 2)
-			$data[$i][$j]=$_POST['Price'][$i];
+			$data[$i][$j]=$_POST['Quanlity'][$i];
 		else if($j== 3)
-			$data[$i][$j]=$_POST['date'][$i];
+			$data[$i][$j]=$_POST['sum'][$i];
 
 
 	}

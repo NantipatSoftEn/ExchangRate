@@ -4,17 +4,7 @@
     <title></title>
     <?php include_once('menu2.php') ?>
     <?php include_once('header.php') ?>
-    <script>
-      function printDiv(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;
-
-        document.body.innerHTML = printContents;
-        window.print();
-
-        document.body.innerHTML = originalContents;
-      }
-    </script> 
+   
   </head>
   <body>
 
@@ -46,7 +36,7 @@
 
            echo"ID  :" . $_POST['ID'] . "</br>";
            echo"คุณ  : " . $_POST['ID2'] . " " . $_POST['ID3'] . "</br>Date:".date('Y-m-d')."&nbsp &nbspTime:".date('h:i:sa')."</br>";
-
+           
            echo '<input type="hidden" name="ID" value='.$_POST['ID'] .'>';
            echo '<input type="hidden" name="name" value='.$_POST['ID2'] .'>';
            echo '<input type="hidden" name="lastname" value='.$_POST['ID3'] .'>';

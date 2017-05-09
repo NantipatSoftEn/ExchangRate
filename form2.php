@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -16,7 +17,7 @@
 			date_default_timezone_set("asia/bangkok");
 			echo'<p align = "right"><font size = "2"> วันที่ออกรายงาน '.date('Y-m-d').' </font></p><br>';
 			echo" <h1><U><center>บริษัท เพียวนา จำกัด</U></center></h1>";
-			echo"<center>รายได้ประจำวัน</center></br>";
+			echo"<center>รายงานสกุลเงินที่ขายดีที่สุดประจำวัน</center></br>";
 			echo "รายได้ประจำวันที่ :" . date('Y-m-d') . "</br></br>";
 
 
@@ -27,11 +28,24 @@
 			for ($i = 0; $i < count($head); $i++)
 				echo "<td>" . $head[$i] . "</td>";
 			echo "</tr>";
+
 			$con=mysqli_connect("localhost","root","","database");
 			$result=mysqli_query($con,"SELECT * FROM money");
+
 			$Rate_compare=array();
 			while($row=mysqli_fetch_array($result,MYSQLI_NUM))
 				$Rate_compare[$row[1]]=$row[2];
+				//Rate_compare[usd-50-120]=50.00
+
+			$con=mysqli_connect("localhost","root","","database2");
+			$result=mysqli_query($con,"SELECT CountryCode,Quanlity,date FROM data where MONTH(Date)=' ".date('d')." '");
+
+			$Rate_compare_1=array('','','','','','','','','','','','','');
+			while($row=mysqli_fetch_array($result,MYSQLI_NUM))
+			{
+				$Rate_compare_1[$row[0]]=array($row[1],$row[2]);
+				//Rate_compare_1[USD-50-100]=array('5',date)
+			}	
 
 			$order = range(1,count($Rate_compare));
 			array_multisort($Rate_compare, SORT_DESC, $order, SORT_DESC);
@@ -43,6 +57,7 @@
 				echo "<td>".$key."</td>";
 				echo "<td>".$value."</td>";
 				echo "</tr>";
+
 				echo '<input type="hidden" name="CountryCode[]" value='.$key .'>';
 				echo '<input type="hidden" name="Currency[]" value='.$value .'>';
 				$i--;

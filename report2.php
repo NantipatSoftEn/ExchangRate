@@ -12,8 +12,7 @@ class PDF extends FPDF
 
 	//Title
       //$this->Cell(30,10,'REPORT','C');
-    $this->Cell(40,20,"
-Best Daily Sales Report");
+    $this->Cell(40,20,"Best Daily Sales Report");
     $this->Ln();
     $this->SetFont('Arial','B',15);
     $this->Cell(40,20,"Date:".date('Y-m-d'));
@@ -49,16 +48,18 @@ Best Daily Sales Report");
     for($i=0;$i<count($header);$i++)
       $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
     $this->Ln();
-    // Color and font restoration
+    // Color and font restorationโ
     $this->SetFillColor(224,235,255);
     $this->SetTextColor(0);
     $this->SetFont('');
     // Data
     $fill = false;
+    
+    
     foreach($data as $row)
     {
       $this->Cell($w[0],6,$row[0],'LR',0,'L',$fill);
-      $this->Cell($w[1],6,number_format($row[1]),'LR',0,'L',$fill);
+      $this->Cell($w[1],6,$row[1],'LR',0,'L',$fill);
       $this->Ln();
       $fill = !$fill;
     }
@@ -83,9 +84,14 @@ for($i=0;$i< 6;$i++)
   for($j=0;$j<2;$j++)
   {
     if($j==0)
+    {
+      //echo  "Test".$data[$i][$j]=$_POST['CountryCode'][$i]."</br>";
       $data[$i][$j]=$_POST['CountryCode'][$i];
+    }
     else if($j==1)
+    {
       $data[$i][$j]=$_POST['Currency'][$i];
+    }
 
 
   }

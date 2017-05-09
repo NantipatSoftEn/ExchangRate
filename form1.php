@@ -48,13 +48,13 @@
         {
             /*echo  "row1=".$row[1]."     ";
             echo  "row2=".$row[2]."</br>";*/
-            if ($row[1]=="USD 50-100")
+            if ($row[1]=="USD-50-100")
                 $Quanlity[0]+=$row[2];
 
-            else if ($row[1]=="USD 5-20")
+            else if ($row[1]=="USD-5-20")
                 $Quanlity[1]+=$row[2];
 
-            else if ($row[1]=="USD 1-2")
+            else if ($row[1]=="USD-1-2")
                 $Quanlity[2]+=$row[2];
 
             else if ($row[1]=="GBP")
