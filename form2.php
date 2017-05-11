@@ -129,12 +129,7 @@
 
 			}
 			$counts=0;
-			echo $Rate_compare["USD-50-100"]."</br>";
-			echo $Rate_compare["USD-50-100"]."</br>";
-			echo $Rate_compare["USD-50-100"]."</br>";
-			echo $Rate_compare["USD-50-100"]."</br>";
-			echo $Rate_compare["USD-50-100"]."</br>";
-			echo $Rate_compare["USD-50-100"]."</br>";
+			
 			
 
 			$order = range(1,count($Rate_compare));
