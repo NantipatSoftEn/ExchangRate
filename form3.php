@@ -72,7 +72,8 @@
 				
 				$Rate_compare[$row[0]]=array($row[1],$row[2]);
 			}
-			
+	
+
 			
 			
 			$sum_mouth=0;

@@ -103,21 +103,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo "<td>";
 				echo "<table>";
 				$con=mysqli_connect("localhost","root","","database");
-				$head=array("CountryCode ","Currency ");
+				$head=array("","CountryCode ","Currency ");
 				echo "<tr>";
 				for($i=0; $i<count($head) ; $i++)
 					echo "<th>".$head[$i]."</th>";
 				echo "</tr>";
 				$result=mysqli_query($con,"SELECT * FROM money");
 				$temp=0;
-
+				$picture_Rate=array('USD50-100.png
+					','USD5-20.png'
+					,'USD5-20.png'
+					,'GBP.png'
+					,'EUR.png',
+					'JPY.png',
+					'HKD.png',
+					'MYR.png',
+					'SGD.png',
+					'BHD.png',
+					'CNY.png',
+					'IDR.png',
+					'INR.png',);
+				$j=0;
 				while($row=mysqli_fetch_array($result,MYSQLI_NUM))
 				{
 
 					echo "<tr>";
+					echo "<td><img src =Rate/".$picture_Rate[$j]."></td>"; 
 					for($i=1; $i< 3; $i++)
 						echo '<td>'.$row[$i].'</td>';
 					echo "</tr>";
+					$j++;
 				}
 				echo "</table>";
 
@@ -157,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			<div class="content">
 
-			
+
 				<div id="css_time_run">  	
 					<?= "".date("H:i:s").""?>  
 				</div>  

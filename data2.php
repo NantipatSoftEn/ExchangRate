@@ -79,7 +79,7 @@ $pdf->SetFont('Times','',12);
 
 //*** Insert Text ***//
 
-$header = array('CountryCode', 'Quantity','Price','Date');
+$header = array('CountryCode', 'Rate','Quanlity','Price');
 
 $data=array(array());
 /*echo $_POST['CountryCode'][0]."<br>";
